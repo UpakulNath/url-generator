@@ -1,0 +1,19 @@
+{
+  "name": "url-generator",
+  "version": "1.0.0",
+  "description": "a simple short url-generator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Upakul Nath",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
