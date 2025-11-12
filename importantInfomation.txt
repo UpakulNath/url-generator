@@ -1,0 +1,25 @@
+There are two main types of HTTP redirects:
+
+301 Redirect (Permanent)
+Means: “This short link always goes to the same destination.”
+→ The browser or search engine might remember this redirection.
+
+302 Redirect (Temporary)
+Means: “This redirect might change later.”
+→ The browser will not cache it permanently, and every time someone clicks the short link, it will ask the backend again for the destination.
+
+
+Solutions to shorten a url:
+
+    a. URL Encoding:A base is a number of digits or characters that can be used to represent a particular number.
+
+    base 62 are [0–9][a-z][A-Z]
+
+    i.URL encoding through base62
+
+    ii.URL encoding through MD5
+
+    b.Key Generation Service (KGS)
+
+
+    My project will use unique id + hashids library to generate short url.
