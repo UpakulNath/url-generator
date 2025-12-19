@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors"
 import cookieParser from "cookie-parser";
+import {redirectToLongUrl} from "../src/controllers/url.controllers.js"
 
 const app = express();
 const port = process.env.PORT;
@@ -20,6 +21,7 @@ app.use(
 
 import authRouter from "./routes/generatorUser.routes.js";
 app.use("/api/v1/urlUser", authRouter);
+app.get("/:shortCode", redirectToLongUrl);
 app.use(cookieParser());
 
 export default app;

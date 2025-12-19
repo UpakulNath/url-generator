@@ -9,13 +9,17 @@ import {
   userLoginValidator,
   longUrlValidator
 } from "../validators/index.js";
-import { generateShortUrl } from "../controllers/url.controllers.js";
+import {
+  generateShortUrl,
+  redirectToLongUrl,
+} from "../controllers/url.controllers.js";
 
 const router = Router()
 
 router.route("/register").post(userRegisterValidator(), validate, registerUser);
 router.route("/login").post(userLoginValidator(), validate, login);
 router.route("/generateURL").post(longUrlValidator(), validate, generateShortUrl);
+router.route("/:shortCode").get(redirectToLongUrl);
 
 export default router;
 

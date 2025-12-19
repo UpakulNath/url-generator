@@ -12,3 +12,19 @@ export const generateShortUrl = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, { shortUrl }, "Url shortened successfully"));
 });
+
+
+export const redirectToLongUrl = asyncHandler(async (req, res) => {
+  const shortCode = req.params.shortCode
+  
+  const requestedUrlDocument = await Url.findOne({ short_code: shortCode})
+  if (!requestedUrlDocument) {
+    return res
+      .status(404)
+      .send("Url not found.")
+  }
+  const longUrl = requestedUrlDocument.long_url
+  return res
+    .redirect(302, longUrl)
+
+})
