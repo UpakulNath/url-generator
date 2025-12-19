@@ -6,7 +6,7 @@ const urlSchema = new Schema(
     user_id: {
       type: mongoose.Schema.Types.ObjectId, // ObjectId type
       ref: "User", // Reference to the User model
-      required: true,
+      required: false,
     },
     long_url: {
       type: String,

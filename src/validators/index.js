@@ -26,4 +26,18 @@ const userLoginValidator = () => {
   ];
 };
 
-export { userRegisterValidator, userLoginValidator };
+const longUrlValidator = () => {
+  return [
+    body("long_url")
+      .trim()
+      .notEmpty()
+      .withMessage("URL is required")
+      .isURL({
+        protocols: ["http", "https"],
+        require_protocol: true,
+      })
+      .withMessage("Provide a valid URL"),
+  ];
+};
+
+export { userRegisterValidator, userLoginValidator, longUrlValidator };
