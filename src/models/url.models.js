@@ -16,6 +16,11 @@ const urlSchema = new Schema(
       type: String,
       unique: true,
     },
+    expireAt: {
+      type: Date,
+      default: () => Date.now() + 7 * 24 * 60 * 60 * 1000,
+      index: { expireAfterSeconds: 0 },
+    },
   },
   { timestamps: true },
 );

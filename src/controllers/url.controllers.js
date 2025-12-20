@@ -23,6 +23,14 @@ export const redirectToLongUrl = asyncHandler(async (req, res) => {
       .status(404)
       .send("Url not found.")
   }
+
+  
+  if (
+    requestedUrlDocument.expireAt &&
+    new Date() > requestedUrlDocument.expireAt
+  ) {
+    return res.status(410).send("url expired.");
+  }
   const longUrl = requestedUrlDocument.long_url
   return res
     .redirect(302, longUrl)
