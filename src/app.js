@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true, limit: "16 kb" }));
 
 app.use(
   cors({
-    origin: `http://localhost:${port}`,
+    origin: [`http://localhost:${port}`,`http://127.0.0.1:5500`],
     methods: ["GET", "POST"],
     credentials: true, //allow cookies/auth headers
     allowedHeaders: ["Content-type", "Authorization"],
