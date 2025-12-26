@@ -1,5 +1,6 @@
 const form = document.getElementById("shorten-form");
 const resultDiv = document.getElementById("result");
+const API_BASE_URL = "https://url-generator-2axe.onrender.com";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault(); // prevent page reload
@@ -8,7 +9,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(
-      "http://localhost:4000/api/v1/urlUser/generateURL",
+      `${API_BASE_URL}/api/v1/urlUser/generateURL`,
       {
         method: "POST",
         headers: {
